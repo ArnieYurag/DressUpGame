@@ -1,0 +1,16 @@
+.background-container {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+  }
+  
+  .lace-image {
+    position: absolute;
+    width: 90vh; 
+    height: 90vh;
+    object-fit: cover;    
+    z-index: -1; 
+}
