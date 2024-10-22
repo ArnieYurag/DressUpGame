@@ -5,6 +5,12 @@ import Avatar from './Avatar';
 import '../styles/DressUp.css';
 import AvatarBackground from '../components/Background';
 
+import skinFolder from '../assets/folders/skinFolder.png'
+import eyesFolder from '../assets/folders/eyesFolder.png';
+import hairFolder from '../assets/folders/hairFolder.png';
+import clothesFolder from '../assets/folders/clothesFolder.png';
+import accessoriesFolder from '../assets/folders/accessoriesFolder.png';
+
 const DressUp = () => {
   const [state, setState] = useState('Idle');
   const [skin, setSkin] = useState(null);
@@ -12,7 +18,8 @@ const DressUp = () => {
   const [hair, setHair] = useState(null);
   const [clothes, setClothes] = useState(null);
   const [accessories, setAccessories] = useState(null);
-
+  const [activeFolder, setActiveFolder] = useState(null);
+  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const avatarRef = useRef(null);
 
@@ -46,15 +53,20 @@ const DressUp = () => {
     transition('AccessoriesSelected');
   };
 
-  // Only show the finish button when one or more components are selected
+  // Only show finish button when one/more components are selected
   const canTransitionToFinished = () => {
     return state !== 'Idle';
   };
 
-  // Show the preview modal when finished
   const handleFinish = () => {
     transition('Finished');
     setIsModalVisible(true);
+  };
+
+  // Function to handle folder clicks and toggle the active folder
+  const toggleFolder = (folderName) => {
+    // If the folder clicked is already active, close it, otherwise open it
+    setActiveFolder((prevFolder) => (prevFolder === folderName ? null : folderName));
   };
 
   const handleClose = () => {
@@ -76,22 +88,52 @@ const DressUp = () => {
   return (
     <div className="dress-up-container">
       <div className="button-section-left">
-        <h3>Select Skin</h3>
-        <button onClick={() => selectSkin('skin1.png')}>Skin Tone 1</button>
-        <button onClick={() => selectSkin('skin2.png')}>Skin Tone 2</button>
-        <button onClick={() => selectSkin('skin3.png')}>Skin Tone 3</button>
+        {/* <h3>Select Skin</h3> */}
+        <img
+          src={skinFolder}
+          alt="Skin Options"
+          className="folderImage"
+          onClick={() => toggleFolder('skin')}
+        />
+        {activeFolder === 'skin' && (
+          <div className="skin-tone-options">
+            <button onClick={() => selectSkin('skin1.png')}>Skin Tone 1</button>
+            <button onClick={() => selectSkin('skin2.png')}>Skin Tone 2</button>
+            <button onClick={() => selectSkin('skin3.png')}>Skin Tone 3</button>
+          </div>
+        )}
 
-        <h3>Select Eyes</h3>
-        <button onClick={() => selectEyes('eyes1.png')}>Eyes 1</button>
-        <button onClick={() => selectEyes('eyes2.png')}>Eyes 2</button>
-        <button onClick={() => selectEyes('eyes3.png')}>Eyes 3</button>
-        <button onClick={() => selectEyes('eyes4.png')}>Eyes 4</button>
+        {/* <h3>Select Eyes</h3> */}
+        <img
+          src={eyesFolder}
+          alt="Eyes Options"
+          className="folderImage"
+          onClick={() => toggleFolder('eyes')}
+        />
+        {activeFolder === 'eyes' && (
+          <div className="eyes-options">
+            <button onClick={() => selectEyes('eyes1.png')}>Eyes 1</button>
+            <button onClick={() => selectEyes('eyes2.png')}>Eyes 2</button>
+            <button onClick={() => selectEyes('eyes3.png')}>Eyes 3</button>
+            <button onClick={() => selectEyes('eyes4.png')}>Eyes 4</button>
+          </div>
+        )}
 
-        <h3>Select Hair</h3>
-        <button onClick={() => selectHair('hair1.png')}>Hair Style 1</button>
-        <button onClick={() => selectHair('hair2.png')}>Hair Style 2</button>
-        <button onClick={() => selectHair('hair3.png')}>Hair Style 3</button>
-        <button onClick={() => selectHair('hair4.png')}>Hair Style 4</button>
+        {/* <h3>Select Hair</h3> */}
+        <img
+          src={hairFolder}
+          alt="Hair Options"
+          className="folderImage"
+          onClick={() => toggleFolder('hair')}
+        />
+        {activeFolder === 'hair' && (
+          <div className="hair-options">
+            <button onClick={() => selectHair('hair1.png')}>Hair 1</button>
+            <button onClick={() => selectHair('hair2.png')}>Hair 2</button>
+            <button onClick={() => selectHair('hair3.png')}>Hair 3</button>
+            <button onClick={() => selectHair('hair4.png')}>Hair 4</button>
+          </div>
+        )}
       </div>
       
       <AvatarBackground>
@@ -108,18 +150,38 @@ const DressUp = () => {
       </AvatarBackground>
 
       <div className="button-section-right">
-        <h3>Select Clothes</h3>
-        <button onClick={() => selectClothes('clothes1.png')}>Clothes 1</button>
-        <button onClick={() => selectClothes('clothes2.png')}>Clothes 2</button>
-        <button onClick={() => selectClothes('clothes3.png')}>Clothes 3</button>
+        {/* <h3>Select Clothes</h3> */}
+        <img
+          src={clothesFolder}
+          alt="Clothes Options"
+          className="folderImage"
+          onClick={() => toggleFolder('clothes')}
+        />
+        {activeFolder === 'clothes' && (
+          <div className="clothes-options">
+            <button onClick={() => selectClothes('clothes1.png')}>Clothes 1</button>
+            <button onClick={() => selectClothes('clothes2.png')}>Clothes 2</button>
+            <button onClick={() => selectClothes('clothes3.png')}>Clothes 3</button>
+          </div>
+        )}
 
-        <h3>Select Accessories</h3>
-        <button onClick={() => selectAccessories('accessories1.png')}>Accessories 1</button>
-        <button onClick={() => selectAccessories('accessories2.png')}>Accessories 2</button>
-        <button onClick={() => selectAccessories('accessories3.png')}>Accessories 3</button>
+        {/* <h3>Select Accessories</h3> */}
+        <img
+          src={accessoriesFolder}
+          alt="Accessories Options"
+          className="folderImage"
+          onClick={() => toggleFolder('accessories')}
+        />
+        {activeFolder === 'accessories' && (
+          <div className="accessories-options">
+            <button onClick={() => selectAccessories('accessories1.png')}>Accessories 1</button>
+            <button onClick={() => selectAccessories('accessories2.png')}>Accessories 2</button>
+            <button onClick={() => selectAccessories('accessories3.png')}>Accessories 3</button>
+          </div>
+        )}
 
         {canTransitionToFinished() && (
-          <button onClick={handleFinish}>Finish</button>
+        <button className="finishBtn" onClick={handleFinish}>Finish</button>
         )}
       </div>
 
@@ -129,7 +191,7 @@ const DressUp = () => {
         onCancel={handleClose}
         footer={[
           <Button key="back" onClick={handleClose}>
-            Close
+            Back
           </Button>,
           <Button key="save" type="primary" onClick={handleSave}>
             Save Avatar

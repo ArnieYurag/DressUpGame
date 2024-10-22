@@ -5,6 +5,7 @@
     height: auto;
     min-height: 100vh;
     overflow-y: auto;
+    position: relative;
 }
 
 .button-section-left,
@@ -20,11 +21,12 @@
 .button-section-right{
     margin-right: 10%;
 }
+
 button {
     border: solid;
     border-radius: 20px;
     padding: 10px;
-    color: #3d3b52;
+    color: #b96f8a;
     background-color: #ffc5df;
     margin: 5px;
     cursor: pointer;
@@ -33,6 +35,14 @@ button {
 
 button:hover{
     transform: scale(1.1);
+}
+
+button:selected {
+    background-color: #b96f8a;
+}
+
+.finishBtn {
+    margin-top: 40%;
 }
 
 .avatar-section {
@@ -45,27 +55,38 @@ button:hover{
 
 .avatar-container {
     position: relative;
-    width: 70vh; /* Matches avatar size */
-    height: 70vh; /* Matches avatar size */
+    width: 70vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
-
+/**Antd override **/
 .ant-btn-variant-solid {
     background: #ffc5df;
     border: solid;
     border-radius: 20px;
-    color: #3d3b52;
+    color: #b96f8a;
 }
 
 .ant-btn-variant-outlined {
     border: solid;
     border-radius: 20px;
-    color: #3d3b52;
+    color: #b96f8a;
 }
 
 .anticon svg {
-    color: #3d3b52;
+    color: #b96f8a;
 }
+
+.folderImage {
+    transition: transform 0.3s ease-in-out;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+  }
+  
+  .folderImage:hover {
+    transform: scale(1.2);
+  }

@@ -15,12 +15,6 @@ html, body {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #f6f1ee;
   min-height: 100vh;
@@ -36,11 +30,15 @@ html, body {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 1200px) {
+  .folderImage {
+    width: 200px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 600px) {
+  .folderImage {
+    width: 80px;
+    height: 80px;
   }
 }

@@ -14,3 +14,17 @@
     object-fit: cover;    
     z-index: -1; 
 }
+
+@media (max-width: 768px) {
+    .background-container, .lace-image {
+        width: 50vh;
+        height: 40vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .background-container, .lace-image {
+        width: 30vh;
+        height: 20vh;
+    }
+}

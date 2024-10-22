@@ -5,45 +5,65 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensures that avatar stays within the container */
+    overflow: hidden;
 }
 
 .avatar-item {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    object-fit: contain; /* Ensure proper scaling without distortion */
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    object-fit: contain; 
 }
 
 /* Layer Z-index assignments */
 .skin-layer { 
-    z-index: 1; /* Skin at the lowest level */
+    z-index: 1;
+    width: 70vh;
+    height: 70vh;
 }
 
 .eyes-layer { 
-    z-index: 2; /* Eyes on top of the skin */
+    z-index: 2;
+    width: 70vh;
+    height: 70vh;
 }
 
 .hair-layer { 
-    z-index: 3; /* Hair on top of eyes and skin */
+    z-index: 3;
+    width: 70vh;
+    height: 70vh;
 }
 
 .idle-layer { 
-    z-index: 4; /* Idle is higher than skin, eyes, and hair */
+    z-index: 4;
     width: 70vh;
     height: 70vh;
-    object-fit: contain;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centers the idle image */
 }
 
 .clothes-layer { 
-    z-index: 5; /* Clothes on top of idle */
+    z-index: 5;
+    width: 70vh;
+    height: 70vh;
 }
 
 .accessories-layer { 
-    z-index: 6; /* Accessories on top of everything */
+    z-index: 6;
+    width: 70vh;
+    height: 70vh;
+}
+
+/* Media queries*/
+@media (max-width: 768px) { 
+    .avatar-item {
+        width: 70vh;
+        height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar-item {
+        width: 50vh;
+        height: 50vh;
+    }
 }
