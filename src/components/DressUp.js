@@ -53,9 +53,12 @@ const DressUp = () => {
     transition('AccessoriesSelected');
   };
 
-  // Only show finish button when one/more components are selected
+//   // Only show finish button when one/more components are selected
+//   const canTransitionToFinished = () => {
+//     return state !== 'Idle';
+//   };
   const canTransitionToFinished = () => {
-    return state !== 'Idle';
+    return skin !== null && eyes !== null && hair !== null && clothes !== null && accessories !== null;
   };
 
   const handleFinish = () => {
