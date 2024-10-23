@@ -97,9 +97,24 @@ const DressUp = () => {
         />
         {activeFolder === 'skin' && (
           <div className="skin-tone-options">
-            <button onClick={() => selectSkin('skin1.png')}>Skin Tone 1</button>
-            <button onClick={() => selectSkin('skin2.png')}>Skin Tone 2</button>
-            <button onClick={() => selectSkin('skin3.png')}>Skin Tone 3</button>
+            <button
+              onClick={() => selectSkin('skin1.png')}
+              className={skin === 'skin1.png' ? 'selected' : ''}
+            >
+              Skin Tone 1
+            </button>
+            <button
+              onClick={() => selectSkin('skin2.png')}
+              className={skin === 'skin2.png' ? 'selected' : ''}
+            >
+              Skin Tone 2
+            </button>
+            <button
+              onClick={() => selectSkin('skin3.png')}
+              className={skin === 'skin3.png' ? 'selected' : ''}
+            >
+              Skin Tone 3
+            </button>
           </div>
         )}
 
@@ -112,10 +127,30 @@ const DressUp = () => {
         />
         {activeFolder === 'eyes' && (
           <div className="eyes-options">
-            <button onClick={() => selectEyes('eyes1.png')}>Eyes 1</button>
-            <button onClick={() => selectEyes('eyes2.png')}>Eyes 2</button>
-            <button onClick={() => selectEyes('eyes3.png')}>Eyes 3</button>
-            <button onClick={() => selectEyes('eyes4.png')}>Eyes 4</button>
+            <button
+              onClick={() => selectEyes('eyes1.png')}
+              className={eyes === 'eyes1.png' ? 'selected' : ''}
+            >
+              Eyes 1
+            </button>
+            <button
+              onClick={() => selectEyes('eyes2.png')}
+              className={eyes === 'eyes2.png' ? 'selected' : ''}
+            >
+              Eyes 2
+            </button>
+            <button
+              onClick={() => selectEyes('eyes3.png')}
+              className={eyes === 'eyes3.png' ? 'selected' : ''}
+            >
+              Eyes 3
+            </button>
+            <button
+              onClick={() => selectEyes('eyes4.png')}
+              className={eyes === 'eyes4.png' ? 'selected' : ''}
+            >
+              Eyes 4
+            </button>
           </div>
         )}
 
@@ -128,10 +163,30 @@ const DressUp = () => {
         />
         {activeFolder === 'hair' && (
           <div className="hair-options">
-            <button onClick={() => selectHair('hair1.png')}>Hair 1</button>
-            <button onClick={() => selectHair('hair2.png')}>Hair 2</button>
-            <button onClick={() => selectHair('hair3.png')}>Hair 3</button>
-            <button onClick={() => selectHair('hair4.png')}>Hair 4</button>
+            <button
+              onClick={() => selectHair('hair1.png')}
+              className={hair === 'hair1.png' ? 'selected' : ''}
+            >
+              Hair 1
+            </button>
+            <button
+              onClick={() => selectHair('hair2.png')}
+              className={hair === 'hair2.png' ? 'selected' : ''}
+            >
+              Hair 2
+            </button>
+            <button
+              onClick={() => selectHair('hair3.png')}
+              className={hair === 'hair3.png' ? 'selected' : ''}
+            >
+              Hair 3
+            </button>
+            <button
+              onClick={() => selectHair('hair4.png')}
+              className={hair === 'hair4.png' ? 'selected' : ''}
+            >
+              Hair 4
+            </button>
           </div>
         )}
       </div>
@@ -159,9 +214,24 @@ const DressUp = () => {
         />
         {activeFolder === 'clothes' && (
           <div className="clothes-options">
-            <button onClick={() => selectClothes('clothes1.png')}>Clothes 1</button>
-            <button onClick={() => selectClothes('clothes2.png')}>Clothes 2</button>
-            <button onClick={() => selectClothes('clothes3.png')}>Clothes 3</button>
+            <button
+              onClick={() => selectClothes('clothes1.png')}
+              className={clothes === 'clothes1.png' ? 'selected' : ''}
+            >
+              Clothes 1
+            </button>
+            <button
+              onClick={() => selectClothes('clothes2.png')}
+              className={clothes === 'clothes2.png' ? 'selected' : ''}
+            >
+              Clothes 2
+            </button>
+            <button
+              onClick={() => selectClothes('clothes3.png')}
+              className={clothes === 'clothes3.png' ? 'selected' : ''}
+            >
+              Clothes 3
+            </button>
           </div>
         )}
 
@@ -174,9 +244,24 @@ const DressUp = () => {
         />
         {activeFolder === 'accessories' && (
           <div className="accessories-options">
-            <button onClick={() => selectAccessories('accessories1.png')}>Accessories 1</button>
-            <button onClick={() => selectAccessories('accessories2.png')}>Accessories 2</button>
-            <button onClick={() => selectAccessories('accessories3.png')}>Accessories 3</button>
+            <button
+              onClick={() => selectAccessories('accessories1.png')}
+              className={accessories === 'accessories1.png' ? 'selected' : ''}
+            >
+              Accessories 1
+            </button>
+            <button
+              onClick={() => selectAccessories('accessories2.png')}
+              className={accessories === 'accessories2.png' ? 'selected' : ''}
+            >
+              Accessories 2
+            </button>
+            <button
+              onClick={() => selectAccessories('accessories3.png')}
+              className={accessories === 'accessories3.png' ? 'selected' : ''}
+            >
+              Accessories 3
+            </button>
           </div>
         )}
 

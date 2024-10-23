@@ -37,8 +37,9 @@ button:hover{
     transform: scale(1.1);
 }
 
-button:selected {
+button.selected {
     background-color: #b96f8a;
+    color: white;
 }
 
 .finishBtn {
