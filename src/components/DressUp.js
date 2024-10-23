@@ -22,41 +22,51 @@ const DressUp = () => {
   
   const [isModalVisible, setIsModalVisible] = useState(false);
   const avatarRef = useRef(null);
+  
+  // FSM transition object for valid transitions between states
+  const transitions = {
+    Idle: ['SelectSkin', 'SelectEyes', 'SelectHair', 'SelectClothes', 'SelectAccessories'],
+    SelectSkin: ['SelectEyes', 'SelectHair', 'SelectClothes', 'SelectAccessories'],
+    SelectEyes: ['SelectSkin', 'SelectHair', 'SelectClothes', 'SelectAccessories'],
+    SelectHair: ['SelectSkin', 'SelectEyes', 'SelectClothes', 'SelectAccessories'],
+    SelectClothes: ['SelectSkin', 'SelectEyes', 'SelectHair', 'SelectAccessories'],
+    SelectAccessories: ['SelectSkin', 'SelectEyes', 'SelectHair', 'SelectClothes'],
+    Finished: []
+  }; 
 
-  // State transition function to manage FSM logic
+  // State transition function to manage FSM logic, base on valid transition
   const transition = (nextState) => {
-    setState(nextState);
+    if (transitions[state].includes(nextState)) {
+      setState(nextState);
+    }
   };
 
   const selectSkin = (item) => {
     setSkin(item);
-    transition('SkinSelected');
+    transition('SelectSkin');
   };
 
   const selectEyes = (item) => {
     setEyes(item);
-    transition('EyesSelected');
+    transition('SelectEyes');
   };
 
   const selectHair = (item) => {
     setHair(item);
-    transition('HairSelected');
+    transition('SelectHair');
   };
 
   const selectClothes = (item) => {
     setClothes(item);
-    transition('ClothesSelected');
+    transition('SelectClothes');
   };
 
   const selectAccessories = (item) => {
     setAccessories(item);
-    transition('AccessoriesSelected');
+    transition('SelectAccessories');
   };
 
-//   // Only show finish button when one/more components are selected
-//   const canTransitionToFinished = () => {
-//     return state !== 'Idle';
-//   };
+  //can only transition to finish when all parts has been customized
   const canTransitionToFinished = () => {
     return skin !== null && eyes !== null && hair !== null && clothes !== null && accessories !== null;
   };
@@ -66,7 +76,6 @@ const DressUp = () => {
     setIsModalVisible(true);
   };
 
-  // Function to handle folder clicks and toggle the active folder
   const toggleFolder = (folderName) => {
     // If the folder clicked is already active, close it, otherwise open it
     setActiveFolder((prevFolder) => (prevFolder === folderName ? null : folderName));
